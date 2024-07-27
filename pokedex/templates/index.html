@@ -1,9 +1,16 @@
 {% extends "base.html"%}
 {%block title%}Pokedex{% endblock title%}
 {%block content%}
-            <p class="p-2">Hola, este es tu primer sitio en Django</p>
-            <a href="{% url "pokedex:add_pokemon" %}">Crear Pokemon</a>
-
+{% comment %} <p class="p-2">Hola, este es tu primer sitio en Django</p>
+    <a href="{% url "pokedex:add_pokemon" %}"> Crear Pokemon</a> {% endcomment %}
+        {% comment %} <ul class="list-group">
+            {% for pokemon in pokemons %}
+            <li class="list-group-item">
+                <a href="pokemon/{{ pokemon.pk }}">{{ pokemon | capfirst }}</a>
+                <p>{{pokemon.type}}</p>
+            </li>
+            {% endfor %}
+        </ul> {% endcomment %}
     <div class="card-group">
         {% for pokemon in pokemons %}
             <div class="card">
