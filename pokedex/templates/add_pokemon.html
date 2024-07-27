@@ -5,5 +5,8 @@
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="submit" class="btn btn-primary">
+            <a href="/" style="color:white">Regresar</a>
+        </button>
     </form>
 {%endblock content%}
