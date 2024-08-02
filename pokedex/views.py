@@ -11,6 +11,10 @@ def index(request):
     template = loader.get_template('index.html')
     return HttpResponse(template.render({'pokemons': pokemons}, request))
 
+def trainer_list(request):
+    trainers = Trainer.objects.order_by('first_name')
+    template = loader.get_template('trainer_list.html')
+    return HttpResponse(template.render({'trainers': trainers}, request))
     
 
 def pokemon(request, pokemon_id):
@@ -79,7 +83,7 @@ def edit_trainer(request, trainer_id):
         form = TrainerForm(request.POST, request.FILES, instance=trainer)
         if form.is_valid():
             form.save()
-            return redirect('pokedex:list_index')
+            return redirect('pokedex:index')
     else:
         form = TrainerForm(instance=trainer)
     return render(request, 'add_trainer.html', {'form':form})

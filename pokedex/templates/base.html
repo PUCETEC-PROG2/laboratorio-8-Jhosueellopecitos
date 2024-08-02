@@ -23,6 +23,9 @@
                       <li class="nav-item">
                         <a class="nav-link" href="{% url "pokedex:index" %}">Pokedex</a>
                       </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url "pokedex:trainer_list" %}">Entrenadores</a>
+                      </li>
                       {% if user.is_authenticated %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url "pokedex:add_pokemon" %}">Añadir Pokémon</a>
