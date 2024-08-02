@@ -1,16 +1,6 @@
 {% extends "base.html"%}
 {%block title%}Pokedex{% endblock title%}
 {%block content%}
-{% comment %} <p class="p-2">Hola, este es tu primer sitio en Django</p>
-    <a href="{% url "pokedex:add_pokemon" %}"> Crear Pokemon</a> {% endcomment %}
-        {% comment %} <ul class="list-group">
-            {% for pokemon in pokemons %}
-            <li class="list-group-item">
-                <a href="pokemon/{{ pokemon.pk }}">{{ pokemon | capfirst }}</a>
-                <p>{{pokemon.type}}</p>
-            </li>
-            {% endfor %}
-        </ul> {% endcomment %}
     <div class="card-group">
         {% for pokemon in pokemons %}
             <div class="card">
@@ -26,6 +16,29 @@
                             <i class="fa-solid fa-pencil"></i>
                         </a>
                         <a href="delete_pokemon/{{ pokemon.id }}" class="btn btn-danger">
+                            <i class="fa-solid fa-trash"></i>
+                        </a>
+                    </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="card-group">
+        {% for trainer in trainers %}
+            <div class="card">
+                <img src="{{ trainer.picture.url }}" alt="">
+                <div class="card-body">
+                        <h5 class="card-title">{{ trainer }}</h5>
+                        <p class="card-text">Nombre: {{ trainer.first_name }} {{ trainer.last_name }}</p>
+                        <p class="card-text">Fecha de Nacimiento: {{ trainer.date }}</p>
+                        <p class="card-text">Nivel: {{ trainer.level }}</p>
+                        <a href="trainer/{{ trainer.id }}" class="btn btn-primary">
+                            <i class="fa-solid fa-eye"></i>
+                        </a>
+                        <a href="edit_trainer/{{ trainer.id }}" class="btn btn-primary">
+                            <i class="fa-solid fa-pencil"></i>
+                        </a>
+                        <a href="delete_trainer/{{ trainer.id }}" class="btn btn-danger">
                             <i class="fa-solid fa-trash"></i>
                         </a>
                     </div>
