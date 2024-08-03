@@ -18,7 +18,7 @@ def trainer_list(request):
     
 
 def pokemon(request, pokemon_id):
-    pokemon = get_object_or_404(pk = pokemon_id)
+    pokemon = get_object_or_404(Pokemon, pk = pokemon_id)
     template = loader.get_template('display_pokemon.html')
     context = {
         'pokemon': pokemon
